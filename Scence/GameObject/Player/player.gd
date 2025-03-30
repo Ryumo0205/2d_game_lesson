@@ -9,7 +9,6 @@ var look_left : bool = false
 # 引入動畫播放節點
 @onready var animator : AnimationPlayer = $AnimationPlayer
 
-
 func _ready() -> void:
 	pass
 
@@ -49,8 +48,8 @@ func _process(delta: float) -> void:
 			animator.play("idle_left")
 		elif look_right == true:
 			animator.play("idle_right")
-
-
+	
+	
 	# 設定移動方向與速度
 	velocity = direction * speed
 	

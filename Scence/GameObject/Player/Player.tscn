@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgiag6nl1rfea"]
+[gd_scene load_steps=14 format=3 uid="uid://cgiag6nl1rfea"]
 
 [ext_resource type="Script" path="res://Scence/GameObject/Player/player.gd" id="1_7q3uk"]
 [ext_resource type="Texture2D" uid="uid://cmlqff5xf8ig2" path="res://Assets/player/AnimationSheet.png" id="1_vbxhg"]
+[ext_resource type="Script" path="res://Scence/GameObject/Player/ray_cast_2d.gd" id="3_wshr5"]
+[ext_resource type="Texture2D" uid="uid://bepjvficu0vwl" path="res://Assets/guns/Icon29_04.png" id="4_3jt1d"]
+[ext_resource type="Script" path="res://Scence/GameObject/Player/marker_2d.gd" id="4_5dmss"]
+[ext_resource type="PackedScene" uid="uid://cdompd53eyvy1" path="res://Scence/GameObject/Bullet/Bullet.tscn" id="5_cen6t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5p0wj"]
-radius = 15.0
+radius = 8.06226
 
 [sub_resource type="Animation" id="Animation_0wqha"]
 length = 0.001
@@ -30,7 +34,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_x5hri"]
@@ -157,6 +161,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 10
 script = ExtResource("1_7q3uk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -167,7 +172,6 @@ debug_color = Color(0.994611, 0, 0.219277, 0.42)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
 texture = ExtResource("1_vbxhg")
-flip_h = true
 hframes = 8
 vframes = 6
 
@@ -176,3 +180,23 @@ libraries = {
 "": SubResource("AnimationLibrary_2ljws")
 }
 autoplay = "idle_right"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(90, 0)
+script = ExtResource("3_wshr5")
+
+[node name="weapon_pos" type="Marker2D" parent="." node_paths=PackedStringArray("ray_to_mouse")]
+position = Vector2(0, -5)
+script = ExtResource("4_5dmss")
+ray_to_mouse = NodePath("../RayCast2D")
+bullet = ExtResource("5_cen6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="weapon_pos"]
+position = Vector2(3, -2)
+rotation = 0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_3jt1d")
+
+[node name="Muzzle" type="Marker2D" parent="weapon_pos"]
+position = Vector2(11, -2)

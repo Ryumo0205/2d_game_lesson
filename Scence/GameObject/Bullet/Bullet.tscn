@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdompd53eyvy1"]
+
+[ext_resource type="Script" path="res://Scence/GameObject/Bullet/bullet.gd" id="1_bb2eq"]
+[ext_resource type="Texture2D" uid="uid://c0x3w0tqv4g3l" path="res://Assets/other/tile_0000.png" id="2_qj5up"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ihmw"]
+size = Vector2(20, 9)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_bb2eq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_qj5up")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_2ihmw")
