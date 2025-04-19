@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpugi4bkra1sh"]
+
+[ext_resource type="Script" path="res://Scence/GameObject/Manager/sfx_manager.gd" id="1_sp0ix"]
+[ext_resource type="AudioStream" uid="uid://dulogiddp0i58" path="res://Assets/SFX/11_human_damage_1.wav" id="2_u3k3v"]
+[ext_resource type="AudioStream" uid="uid://c83cg7cwb7ne7" path="res://Assets/SFX/11_human_damage_3.wav" id="3_sunb6"]
+
+[node name="SfxManager" type="Node"]
+script = ExtResource("1_sp0ix")
+
+[node name="gun_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_u3k3v")
+
+[node name="hit_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sunb6")

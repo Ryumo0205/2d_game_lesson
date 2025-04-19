@@ -1,11 +1,13 @@
 extends Label
-var died_enemy : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	died_enemy = 0 # Replace with function body.
-	text = str(died_enemy)
-
+    text = str(0)
+    ScoreManager.score_update.connect(on_score_update)
+    
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+    pass
+
+func on_score_update(score):
+    text = str(score)

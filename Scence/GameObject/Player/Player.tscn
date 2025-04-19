@@ -60,6 +60,22 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_c0c4h"]
+resource_name = "hit"
+length = 0.600003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [true, false, true, false, true, false, true]
+}
+
 [sub_resource type="Animation" id="Animation_x5hri"]
 resource_name = "idle"
 loop_mode = 1
@@ -174,22 +190,6 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_c0c4h"]
-resource_name = "hit"
-length = 0.600003
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [true, false, true, false, true, false, true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ljws"]
 _data = {
 "RESET": SubResource("Animation_0wqha"),
@@ -246,6 +246,7 @@ position = Vector2(0, -5)
 script = ExtResource("4_5dmss")
 ray_to_mouse = NodePath("../RayCast2D")
 bullet = ExtResource("5_cen6t")
+shoot_rate = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="weapon_pos"]
 position = Vector2(3, -2)

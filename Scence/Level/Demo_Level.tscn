@@ -138,7 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 
-[node name="Label2" type="Label" parent="UI_Layer/MarginContainer"]
+[node name="score" type="Label" parent="UI_Layer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
