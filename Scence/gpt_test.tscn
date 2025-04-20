@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qbfy3lwr26ig"]
+
+[ext_resource type="Script" path="res://Scence/gpt.gd" id="1_7kx43"]
+
+[node name="Temp" type="Node"]
+
+[node name="GPT" type="Node" parent="."]
+script = ExtResource("1_7kx43")

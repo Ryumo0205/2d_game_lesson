@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bxtg44an5eakk"]
+[gd_scene load_steps=20 format=3 uid="uid://cwxle4kklsqtw"]
 
-[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_a.gd" id="1_ijm3d"]
-[ext_resource type="Texture2D" uid="uid://bljcp0igk8hvc" path="res://Assets/dino/DinoSprites - mort.png" id="2_6t7is"]
-[ext_resource type="Script" path="res://Scence/Function/FSM.gd" id="3_ruh7d"]
-[ext_resource type="Script" path="res://Scence/Function/walk.gd" id="4_i37hg"]
-[ext_resource type="Script" path="res://Scence/Function/enemy_idle.gd" id="5_ecbp4"]
-[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_hit.gd" id="6_x3y44"]
+[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_a.gd" id="1_vw1g7"]
+[ext_resource type="Texture2D" uid="uid://bt2hgmxmfa2nf" path="res://Assets/dino/DinoSprites - doux.png" id="2_s5h3a"]
+[ext_resource type="Script" path="res://Scence/Function/FSM.gd" id="3_bf8iq"]
+[ext_resource type="Script" path="res://Scence/Function/walk.gd" id="4_wsgy3"]
+[ext_resource type="Script" path="res://Scence/Function/enemy_idle.gd" id="5_m53is"]
+[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_hit.gd" id="6_hmie2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hdhxc"]
 font_size = 8
@@ -174,7 +174,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
@@ -204,7 +204,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
@@ -236,14 +236,13 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qghvm"]
-radius = 11.0454
+radius = 10.0499
 
-[node name="EnemyB" type="CharacterBody2D"]
+[node name="EnemyC" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_ijm3d")
-speed = 30.0
-max_hp = 20
+script = ExtResource("1_vw1g7")
+max_hp = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = -19.0
@@ -257,7 +256,7 @@ theme_override_constants/separation = -1
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Dino"
+text = "Dino Blue"
 label_settings = SubResource("LabelSettings_hdhxc")
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
@@ -265,9 +264,9 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ve6ix")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eq86g")
-max_value = 20.0
+max_value = 10.0
 step = 1.0
-value = 20.0
+value = 10.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -276,8 +275,8 @@ shape = SubResource("CircleShape2D_5snqx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -8)
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("2_6t7is")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_s5h3a")
 hframes = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -295,14 +294,14 @@ shape = SubResource("CircleShape2D_qghvm")
 debug_color = Color(0.956811, 0.209457, 0, 0.42)
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_ruh7d")
+script = ExtResource("3_bf8iq")
 initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyWalk" type="Node" parent="FSM"]
-script = ExtResource("4_i37hg")
+script = ExtResource("4_wsgy3")
 
 [node name="EnemyIdle" type="Node" parent="FSM"]
-script = ExtResource("5_ecbp4")
+script = ExtResource("5_m53is")
 
 [node name="EnemyHit" type="Node" parent="FSM"]
-script = ExtResource("6_x3y44")
+script = ExtResource("6_hmie2")

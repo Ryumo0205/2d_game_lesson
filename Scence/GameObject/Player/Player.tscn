@@ -243,6 +243,7 @@ script = ExtResource("3_wshr5")
 
 [node name="weapon_pos" type="Marker2D" parent="." node_paths=PackedStringArray("ray_to_mouse")]
 position = Vector2(0, -5)
+rotation = -3.10818
 script = ExtResource("4_5dmss")
 ray_to_mouse = NodePath("../RayCast2D")
 bullet = ExtResource("5_cen6t")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://x1jb5u37c4t5"]
+[gd_scene load_steps=20 format=3 uid="uid://x1jb5u37c4t5"]
 
 [ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_a.gd" id="1_22rjt"]
 [ext_resource type="Texture2D" uid="uid://uvccgy3j5ew5" path="res://Assets/dino/DinoSprites - vita.png" id="1_nngye"]
 [ext_resource type="Script" path="res://Scence/Function/FSM.gd" id="3_y8hdv"]
 [ext_resource type="Script" path="res://Scence/Function/walk.gd" id="4_c4sr3"]
 [ext_resource type="Script" path="res://Scence/Function/enemy_idle.gd" id="5_jmfii"]
+[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_hit.gd" id="6_0i0u5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hdhxc"]
 font_size = 8
@@ -241,6 +242,7 @@ radius = 11.0454
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_22rjt")
+max_hp = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = -19.0
@@ -299,3 +301,6 @@ script = ExtResource("4_c4sr3")
 
 [node name="EnemyIdle" type="Node" parent="FSM"]
 script = ExtResource("5_jmfii")
+
+[node name="EnemyHit" type="Node" parent="FSM"]
+script = ExtResource("6_0i0u5")

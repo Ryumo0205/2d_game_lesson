@@ -128,6 +128,8 @@ size = Vector2(483, 435.935)
 
 [node name="DemoLevel" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="UI_Layer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="UI_Layer"]

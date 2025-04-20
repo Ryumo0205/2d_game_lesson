@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 
 
 func on_lv_up(level):
-	print("label lv up")
+	#print("label lv up")
 	text = str(level)

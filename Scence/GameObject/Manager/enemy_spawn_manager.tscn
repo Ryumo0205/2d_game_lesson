@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cux2toeojcbsq"]
+[gd_scene load_steps=5 format=3 uid="uid://cux2toeojcbsq"]
 
 [ext_resource type="Script" path="res://Scence/GameObject/Manager/enemy_spawn_manager.gd" id="1_3lwxf"]
 [ext_resource type="PackedScene" uid="uid://x1jb5u37c4t5" path="res://Scence/GameObject/Enemy_A/Enemy_A.tscn" id="2_opyyy"]
 [ext_resource type="PackedScene" uid="uid://bxtg44an5eakk" path="res://Scence/GameObject/Enemy_A/Enemy_B.tscn" id="3_hdhxl"]
+[ext_resource type="PackedScene" uid="uid://cwxle4kklsqtw" path="res://Scence/GameObject/Enemy_A/Enemy_C.tscn" id="4_73rdp"]
 
 [node name="EnemySpawnManager" type="Node"]
 script = ExtResource("1_3lwxf")
-enemy_scene_array = Array[PackedScene]([ExtResource("2_opyyy"), ExtResource("3_hdhxl")])
+enemy_scene_array = Array[PackedScene]([ExtResource("2_opyyy"), ExtResource("3_hdhxl"), ExtResource("4_73rdp")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

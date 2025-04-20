@@ -7,8 +7,8 @@ signal score_update(current_score)
 
 
 func _ready() -> void:
-    current_score = 0
+	current_score = 0
 
 
 
-    
+	
