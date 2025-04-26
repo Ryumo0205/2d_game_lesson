@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://dyvwu78g6q6wq"]
+[gd_scene load_steps=15 format=4 uid="uid://dyvwu78g6q6wq"]
 
+[ext_resource type="Script" path="res://Scence/GameObject/Other/start_button.gd" id="1_4jldj"]
 [ext_resource type="Texture2D" uid="uid://d4ctolyidk2lh" path="res://Assets/map/tilemap_packed.png" id="1_if50r"]
 [ext_resource type="Script" path="res://Scence/Level/lv.gd" id="2_36251"]
 [ext_resource type="Script" path="res://Scence/Level/progress_bar.gd" id="2_upcr4"]
@@ -128,7 +129,31 @@ size = Vector2(483, 435.935)
 
 [node name="DemoLevel" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="StartMenu" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="StartMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="StartMenu/MarginContainer" node_paths=PackedStringArray("spawn_manager")]
+z_index = 5
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
+script = ExtResource("1_4jldj")
+spawn_manager = NodePath("../../../EnemySpawnManager")
 
 [node name="UI_Layer" type="CanvasLayer" parent="."]
 
@@ -139,6 +164,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="score" type="Label" parent="UI_Layer/MarginContainer"]
 layout_mode = 2
@@ -181,6 +207,8 @@ position = Vector2(89, 69)
 [node name="EnemySpawnManager" parent="." instance=ExtResource("7_q71a8")]
 
 [node name="SpawnArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
 position = Vector2(264.5, 256.25)

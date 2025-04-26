@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwxle4kklsqtw"]
+[gd_scene load_steps=20 format=3 uid="uid://x1jb5u37c4t5"]
 
-[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_a.gd" id="1_vw1g7"]
-[ext_resource type="Texture2D" uid="uid://bt2hgmxmfa2nf" path="res://Assets/dino/DinoSprites - doux.png" id="2_s5h3a"]
-[ext_resource type="Script" path="res://Scence/Function/FSM.gd" id="3_bf8iq"]
-[ext_resource type="Script" path="res://Scence/Function/walk.gd" id="4_wsgy3"]
-[ext_resource type="Script" path="res://Scence/Function/enemy_idle.gd" id="5_m53is"]
-[ext_resource type="Script" path="res://Scence/GameObject/Enemy_A/enemy_hit.gd" id="6_hmie2"]
+[ext_resource type="Script" path="res://Scence/GameObject/Enemy/enemy_a.gd" id="1_22rjt"]
+[ext_resource type="Texture2D" uid="uid://uvccgy3j5ew5" path="res://Assets/dino/DinoSprites - vita.png" id="1_nngye"]
+[ext_resource type="Script" path="res://Scence/Function/FSM.gd" id="3_y8hdv"]
+[ext_resource type="Script" path="res://Scence/Function/walk.gd" id="4_c4sr3"]
+[ext_resource type="Script" path="res://Scence/Function/enemy_idle.gd" id="5_jmfii"]
+[ext_resource type="Script" path="res://Scence/Function/enemy_hit.gd" id="6_0i0u5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hdhxc"]
 font_size = 8
@@ -236,13 +236,13 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qghvm"]
-radius = 10.0499
+radius = 11.0454
 
-[node name="EnemyC" type="CharacterBody2D"]
+[node name="EnemyA" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("1_vw1g7")
-max_hp = 30
+script = ExtResource("1_22rjt")
+max_hp = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = -19.0
@@ -256,7 +256,7 @@ theme_override_constants/separation = -1
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Dino Blue"
+text = "Dino"
 label_settings = SubResource("LabelSettings_hdhxc")
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
@@ -275,8 +275,7 @@ shape = SubResource("CircleShape2D_5snqx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -8)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_s5h3a")
+texture = ExtResource("1_nngye")
 hframes = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -294,14 +293,14 @@ shape = SubResource("CircleShape2D_qghvm")
 debug_color = Color(0.956811, 0.209457, 0, 0.42)
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_bf8iq")
+script = ExtResource("3_y8hdv")
 initial_state = NodePath("EnemyIdle")
 
 [node name="EnemyWalk" type="Node" parent="FSM"]
-script = ExtResource("4_wsgy3")
+script = ExtResource("4_c4sr3")
 
 [node name="EnemyIdle" type="Node" parent="FSM"]
-script = ExtResource("5_m53is")
+script = ExtResource("5_jmfii")
 
 [node name="EnemyHit" type="Node" parent="FSM"]
-script = ExtResource("6_hmie2")
+script = ExtResource("6_0i0u5")

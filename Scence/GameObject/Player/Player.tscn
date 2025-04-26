@@ -19,7 +19,7 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5p0wj"]
-radius = 8.06226
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_0wqha"]
 length = 0.001
@@ -214,9 +214,9 @@ offset_right = 15.0
 offset_bottom = -18.0
 theme_override_styles/background = SubResource("StyleBoxFlat_fgpby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5o44i")
-max_value = 10.0
+max_value = 50.0
 step = 1.0
-value = 5.0
+value = 50.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -258,8 +258,12 @@ texture = ExtResource("4_3jt1d")
 [node name="Muzzle" type="Marker2D" parent="weapon_pos"]
 position = Vector2(11, -2)
 
+[node name="bonus_timer" type="Timer" parent="weapon_pos"]
+wait_time = 10.0
+one_shot = true
+
 [node name="HitBox" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -7)
