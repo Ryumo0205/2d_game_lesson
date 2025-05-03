@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 ExpManager="*res://Scence/GameObject/Manager/exp_manager.tscn"
 ScoreManager="*res://Scence/GameObject/Manager/score_manager.tscn"
 SfxManager="*res://Scence/GameObject/Manager/sfx_manager.tscn"
+RankManager="*res://Scence/GameObject/Manager/rank_manager.tscn"
 
 [display]
 

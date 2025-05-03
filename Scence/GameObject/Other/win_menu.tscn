@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyv8l2pt045ve"]
+[gd_scene load_steps=4 format=3 uid="uid://cyv8l2pt045ve"]
 
+[ext_resource type="Script" path="res://Scence/GameObject/Other/win_menu.gd" id="1_jamk8"]
 [ext_resource type="Script" path="res://Scence/GameObject/Other/Restartbutton.gd" id="1_vd7dk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kupce"]
-font_size = 100
+font_size = 30
 
 [node name="WinMenu" type="CanvasLayer"]
+script = ExtResource("1_jamk8")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -23,7 +25,6 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -32,8 +33,56 @@ size_flags_horizontal = 4
 text = "Win"
 label_settings = SubResource("LabelSettings_kupce")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="1st" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "1st"
+
+[node name="2nd" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "2nd"
+
+[node name="3rd" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "3rd"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="1st_score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "none
+"
+horizontal_alignment = 2
+
+[node name="2nd_score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "none"
+horizontal_alignment = 2
+
+[node name="3rd_score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "none"
+horizontal_alignment = 2
+
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Restart"
 script = ExtResource("1_vd7dk")

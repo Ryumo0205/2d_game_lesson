@@ -19,5 +19,11 @@ func on_score_update(score):
     
 func win():
     print("win!")
+    RankManager.load_from_file()
+    RankManager.add_entry(current_score)
+    
     var win_screen = win_screen_scene.instantiate()
     get_tree().current_scene.add_child(win_screen)
+    
+    RankManager.save_to_file()
+    current_score = 0    
